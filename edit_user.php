@@ -3,10 +3,16 @@
     include 'connection.php';
 
     $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+    $pw =  password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "SELECT * FROM lands WHERE id=$id";
+    $sql = "UPDATE users SET name='$name', email='$email', password='$pw', role='$role' WHERE id='$id'";
 
     $result = $connect->query($sql);
+
 
     if($result->num_rows > 0) {
         $user = array();

@@ -4,7 +4,7 @@
 
     $id = $_POST['id'];
 
-    $sql = "SELECT * FROM lands WHERE id=$id";
+    $sql = "SELECT * FROM devices where land_id = $id";
 
     $result = $connect->query($sql);
 

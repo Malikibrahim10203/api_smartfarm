@@ -2,9 +2,15 @@
 
     include 'connection.php';
 
-    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+    $created_at = date("Y-m-d H:i:s");
+    $updated_at = date("Y-m-d H:i:s");
+    $pw =  password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "SELECT * FROM lands WHERE id=$id";
+    $sql = "INSERT INTO users (name,email,password,role) VALUES ('$name','$email','$pw','$role')";
 
     $result = $connect->query($sql);
 
