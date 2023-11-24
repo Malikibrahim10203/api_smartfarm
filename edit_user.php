@@ -10,13 +10,14 @@
     $pw =  password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "UPDATE users SET name='$name', email='$email', password='$pw', role='$role' WHERE id='$id'";
-
     $result = $connect->query($sql);
 
+    $check = $connect->query("SELECT * FROM users WHERE id='$id'");
 
-    if($result->num_rows > 0) {
+
+    if($check->num_rows > 0) {
         $user = array();
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $check->fetch_assoc()) {
             $user[] = $row;
         }
 
