@@ -5,11 +5,10 @@
     $id = $_POST['id'];
     $name = $_POST['name'];
     $land_id = $_POST['land_id'];
-    $created_at = date("Y-m-d H:i:s");
     $updated_at = date("Y-m-d H:i:s");
 
-    $sql = "update devices 
-    set id='$id',name='$name',land_id='$land_id',created_at='$created_at',updated_at='$updated_at' where id='$id'";
+    $sql = " devices 
+    set id='$id',name='$name',land_id='$land_id',updupdateated_at='$updated_at' where id='$id'";
 
     $result = $connect->query($sql);
 
