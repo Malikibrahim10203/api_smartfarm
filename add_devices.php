@@ -2,7 +2,6 @@
 
     include 'connection.php';
 
-    $id = $_POST['id'];
     $name = $_POST['name'];
     $land_id = $_POST['land_id'];
     $created_at = date("Y-m-d H:i:s");
