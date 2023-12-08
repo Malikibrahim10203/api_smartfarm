@@ -9,25 +9,50 @@
     $role = $_POST['role'];
     $pw =  password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "UPDATE users SET name='$name', email='$email', password='$pw', role='$role' WHERE id='$id'";
-    $result = $connect->query($sql);
+    if ($password == "null") {
+        $sql = "UPDATE users SET name='$name', email='$email', role='$role' WHERE id='$id'";
+        $result = $connect->query($sql);
 
-    $check = $connect->query("SELECT * FROM users WHERE id='$id'");
+        $check = $connect->query("SELECT * FROM users WHERE id='$id'");
 
 
-    if($check->num_rows > 0) {
-        $user = array();
-        while ($row = $check->fetch_assoc()) {
-            $user[] = $row;
+        if($check->num_rows > 0) {
+            $user = array();
+            while ($row = $check->fetch_assoc()) {
+                $user[] = $row;
+            }
+
+            echo json_encode(array(
+                "success"=>true,
+                "user"=>$user,
+            ));
+        } else {
+            echo json_encode(array(
+                "success"=>false,
+            ));
         }
-
-        echo json_encode(array(
-            "success"=>true,
-            "user"=>$user,
-        ));
     } else {
-        echo json_encode(array(
-            "success"=>false,
-        ));
+        $sql = "UPDATE users SET name='$name', email='$email', password='$pw', role='$role' WHERE id='$id'";
+        $result = $connect->query($sql);
+
+        $check = $connect->query("SELECT * FROM users WHERE id='$id'");
+
+
+        if($check->num_rows > 0) {
+            $user = array();
+            while ($row = $check->fetch_assoc()) {
+                $user[] = $row;
+            }
+
+            echo json_encode(array(
+                "success"=>true,
+                "user"=>$user,
+            ));
+        } else {
+            echo json_encode(array(
+                "success"=>false,
+            ));
+        }
     }
+    
 ?>

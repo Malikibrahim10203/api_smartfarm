@@ -11,7 +11,7 @@
     $check = $connect->query("SELECT * FROM users WHERE id='$id'");
 
 
-    if($check->num_rows < 0) {
+    if($check->num_rows == 0) {
         $user = array();
 
         echo json_encode(array(
