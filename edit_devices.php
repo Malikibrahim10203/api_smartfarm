@@ -3,11 +3,13 @@
     include 'connection.php';
 
     $id = $_POST['id'];
+    $id_old = $_POST['id_old'];
     $name = $_POST['name'];
+    $name_old = $name;
     $land_id = $_POST['land_id'];
     $updated_at = date("Y-m-d H:i:s");
 
-    $sql = "UPDATE devices SET id='$id', name='$name', land_id='$land_id', updated_at='$updated_at' where id='$id'";
+    $sql = "UPDATE devices SET id='$id', name='$name', updated_at='$updated_at' where id='$id_old'";
 
     $result = $connect->query($sql);
 
