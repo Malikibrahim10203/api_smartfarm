@@ -6,7 +6,7 @@
     //$image = $_POST['image'];
     $description = $_POST['description'];
     $polygon = $_POST['polygon'];
-    //$area = $_POST['area'];
+    $area = $_POST['area'];
     //$image = $_POST['image'];
     $crop_status = $_POST['crop_status'];
     $crop_planted_at = date("Y-m-d", strtotime($_POST['crop_planted_at']));
@@ -17,7 +17,8 @@
 
     $sql = "UPDATE `lands` SET `name` = '$name', 
     `description` = '$description', 
-    `polygon` = '$polygon', 
+    `polygon` = '$polygon',
+    `area` = '$area', 
     `crop_status` = '$crop_status', `user_id` = '$user_id', 
     `deleted_at` = NULL, `created_at` = NULL, 
     `updated_at` = '$updated_at' WHERE `lands`.`id` = '$id'";

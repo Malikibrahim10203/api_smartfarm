@@ -6,7 +6,7 @@
     //$image = $_POST['image'];
     $description = $_POST['description'];
     $polygon = $_POST['polygon'];
-    //$area = $_POST['area'];
+    $area = $_POST['area'];
     //$image = $_POST['image'];
     $crop_status = $_POST['crop_status'];
     $crop_planted_at = date("Y-m-d", strtotime($_POST['crop_planted_at']));
@@ -15,7 +15,7 @@
     $created_at = date("Y-m-d H:i:s");
     $updated_at = date("Y-m-d H:i:s");
 
-    $sql = "INSERT INTO lands (name,description,polygon,crop_status, crop_planted_at, user_id) VALUES ('$name','$description','$polygon','$crop_status', '$crop_planted_at','$user_id')";
+    $sql = "INSERT INTO lands (name,description,polygon,area,crop_status, crop_planted_at, user_id) VALUES ('$name','$description','$polygon','$area','$crop_status', '$crop_planted_at','$user_id')";
 
     $result = $connect->query($sql);
 
